@@ -16,7 +16,7 @@ using namespace std;
 
 int main(){
 
-    cout<<"Basic concept of pointer********"<<endl;
+    cout<<"*****Concept of pointer*****"<<endl;
         int a=10;
         int* ptr = &a;
         cout<<"a : "<<a<<endl; //a
@@ -26,7 +26,7 @@ int main(){
         cout<<"*ptr : "<<*ptr<<endl; //a
 
 
-    cout<<"Arrays and pointers*************"<<endl;
+    cout<<"*****Arrays and pointers*****"<<endl;
         int marks[4] = {8,6,7,9};
         int* j = marks; //int* j = &marks[0];
         cout<<"*j : "<<*j<<endl;
@@ -35,18 +35,35 @@ int main(){
         cout<<"*(j+3) : "<<*(j+3)<<endl;
 
 
-    //pointer arithmatic*****************
+    //pointer arithmatic*****
         // address_new = address_current + i* size of datatype;
 
 
-    //Dynamically allocated arrays*************
-        // int *p = (int *)malloc(sizeof(int)*3); // Allocate array p[3] and cast void* to int*
-        // p[0] = 1; 
-        // p[1] = 2; 
-        // p[2] = 3;
-        // cout<<"p[1] : "<<p[1]<<endl; 
-        // cout<<"*(p+1) : "<<*(p+1)<<endl;
-        // free(p);
+    cout<<"*****new keyword*****"<<endl;
+        int *p1 = new int(40);
+        float *p2 = new float(40.78);
+        cout<<"The value at address p1 : "<<*(p1)<<endl;
+        cout<<"The value at address p2 : "<<*(p2)<<endl;
+
+
+    cout<<"*****Dynamically allocated arrays by malloc method*****"<<endl;
+        int *arr1 = (int *)malloc(sizeof(int)*3); // Allocate array arr1[3] and cast void* to int*
+        arr1[0] = 1; 
+        arr1[1] = 2; 
+        arr1[2] = 3;
+        cout<<"arr1[1] : "<<arr1[1]<<endl; 
+        cout<<"*(arr1+1) : "<<*(arr1+1)<<endl;
+        free(arr1);
+
+    cout<<"*****Dynamically allocated arrays by new keyword*****"<<endl;
+        int *arr2 = new int[3];
+        arr2[0] = 10;
+        arr2[1] = 20;
+        arr2[2] = 30;
+        cout<<"The value of arr2[0] is "<<arr2[0]<<endl;
+        cout<<"The value of arr2[1] is "<<arr2[1]<<endl;
+        cout<<"The value of arr2[2] is "<<arr2[2]<<endl;
+        delete arr2;
 
     return 0;
 }

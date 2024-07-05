@@ -1,3 +1,13 @@
+/*
+    Inheritance :- (class1)-->(class2, class3)-->(class4).
+    Let's consider class1 have "roll_number" datamember.
+    "roll_number" is inherited in both class2 and class3.
+    class4 is inherite from class2, class3. Then class4 contains two same "roll_number".
+    This same value generate the ambiguity in program.
+    We resolve this ambiguity by "virtual" keyword.
+*/
+
+
 #include<iostream>
 using namespace std; 
 
@@ -6,10 +16,10 @@ class student{
     protected:
         int roll_number;
     public: 
-        void get_number(int a){
+        void setRollNo(int a){
             roll_number = a;
         }
-        void put_number(){
+        void printRollNo(){
             cout<<"Your roll number is "<<roll_number<<endl;
         }
 };
@@ -19,11 +29,11 @@ class test: virtual public student{
     protected:
         float part1, part2;
     public: 
-        void get_marks(float x, float y){
+        void setMarks(float x, float y){
             part1 = x;
             part2 = y;
         }
-        void put_marks(){
+        void printMarks(){
             cout<<"Your maths marks is "<<part1<<" and Your physics marks is "<<part2<<endl;
         }
 };
@@ -32,10 +42,10 @@ class sports: virtual public student{
     protected:
         float score;
     public:
-        void get_score(float s){
+        void setScore(float s){
             score = s;
         }
-        void put_score(){
+        void printScore(){
             cout<<"Your sports score is "<<score<<endl;
         }
 };
@@ -46,18 +56,20 @@ class result: public test, public sports{
     public:
         void dispaly(){
             total = part1 + part2 + score;
-            put_number();
-            put_marks();
-            put_score();
+            printRollNo();
+            printMarks();
+            printScore();
             cout<<"The total performance(Math marks + Physics marks + sports score) is "<<total<<endl;
         }
 };
 
 int main(){
     result aman;
-    aman.get_number(2125688);   // Input roll number
-    aman.get_marks(30.5,33.7);  // Input maths and physics marks
-    aman.get_score(35.3);       // Input sports score
-    aman.dispaly();             // output roll number, maths marks, physics marks, sports marks and total marks
+    aman.setRollNo(2125688);   //Input roll number
+    aman.setMarks(30.5,33.7);  //Input maths and physics marks
+    aman.setScore(35.3);       //Input sports score
+    aman.dispaly();            //output roll number, maths marks, physics marks, sports marks and total marks
     return 0;
 }
+
+

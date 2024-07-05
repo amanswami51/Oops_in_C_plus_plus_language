@@ -31,7 +31,7 @@ int main(){
     bptr->display();
     bptr->show();
 
-    // derived class object and pointer 
+    //derived class object
     Derived d1;
     bptr = &d1;
     bptr->display();

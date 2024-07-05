@@ -11,15 +11,15 @@ class Test{
             b = y;
         }
         void show(){
-            cout<<"a : "<<a<<endl<<"b : "<<b<<endl;
+            cout<<"a : "<<a<<", b : "<<b<<endl;
         }
 };
-
 int main(){
     Test<float,int> test1(1.23,123);
-    Test<int,char>  test2(100,'A');
-
     test1.show();
+
+    Test<int,char>  test2(100,'A');
     test2.show();
+    
     return 0;
 }
